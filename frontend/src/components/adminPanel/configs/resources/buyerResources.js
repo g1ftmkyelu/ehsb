@@ -1,0 +1,96 @@
+import { CiHome, CiShop, CiShoppingBasket, CiUser } from "react-icons/ci";
+
+// Define resources for the buyer user
+export const buyerResources = [
+  {
+    path: "dashboard",
+    icon: CiHome,
+  },
+
+  {
+    path: "products",
+    dataSource: "https://ehcs.onrender.com/products",
+    icon: CiShoppingBasket,
+    sidePanel: false,
+    type: "crudGrid",
+    add: true,
+    view: true,
+    edit: false,
+    update: false,
+    delete: false,
+    menu: { name: "shop", icon: CiShop },
+    schema: [
+      { name: "name", title: "Product Name", type: "text" },
+      { name: "description", title: "Description", type: "textarea" },
+      { name: "price", title: "Price", type: "number" },
+      { name: "stock", title: "Stock Quantity", type: "number" },
+    ],
+  },
+  {
+    path: "cart",
+    dataSource: "https://ehcs.onrender.com/cart",
+    icon: CiShoppingBasket,
+    sidePanel: false,
+    type: "crud",
+    add: false,
+    view: true,
+    edit: false,
+    update: false,
+    delete: true,
+    menu: { name: "shop", icon: CiShop },
+    schema: [
+      { name: "productName", title: "Product Name", type: "text" },
+      { name: "quantity", title: "Quantity", type: "number" },
+      { name: "totalPrice", title: "Total Price", type: "number" },
+    ],
+  },
+  {
+    path: "orders",
+    dataSource: "https://ehcs.onrender.com/orders",
+    icon: CiShoppingBasket,
+    sidePanel: false,
+    type: "crudGrid",
+    add: false,
+    view: true,
+    edit: false,
+    update: false,
+    delete: false,
+    menu: { name: "shop", icon: CiShop },
+    schema: [
+      { name: "orderNumber", title: "Order Number", type: "text" },
+      { name: "totalAmount", title: "Total Amount", type: "number" },
+      { name: "orderDate", title: "Order Date", type: "date" },
+    ],
+  },
+  {
+    path: "profile",
+    dataSource: "https://ehcs.onrender.com/profile",
+    icon: CiUser,
+    sidePanel: false,
+    type: "singleton",
+    add: false,
+    view: true,
+    edit: true,
+    update: true,
+    delete: false,
+    schema: [
+      { name: "name", title: "Name", type: "text" },
+      { name: "email", title: "Email", type: "email" },
+      { name: "phone", title: "Phone", type: "tel" },
+      { name: "address", title: "Address", type: "textarea" },
+      { name: "postalCode", title: "Postal Code", type: "text" },
+      { name: "zipCode", title: "Zip Code", type: "text" },
+      {
+        name: "country",
+        title: "Country",
+        sidePanel: false,
+        type: "select",
+        options: [
+          { label: "Algeria", value: "Algeria" },
+          { label: "Morocco", value: "Morocco" },
+          // Add more country options as needed
+        ],
+      },
+    ],
+  },
+];

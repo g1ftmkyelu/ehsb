@@ -20,7 +20,7 @@ const DashboardTopBar = ({ handleLogOut, userData }) => {
             onClick={toggleDropdown}
             className="text-white bg-gray-600 w-8 h-8 rounded-full flex items-center justify-center"
           >
-            {userData.username[0]}
+            {userData.firstName[0]+" "+userData.lastName[0]}
           </div>
           <span className='mx-2'>
             <h5 className="text-lg ">{userData.firstName+" "+userData.lastName}</h5>

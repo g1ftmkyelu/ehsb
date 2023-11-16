@@ -38,6 +38,18 @@ const config=  {
         },
       ],
     },
+
+    {
+      title: "Enter Phone Number",
+      fields: [
+        {
+          name: "phoneNumber",
+          type: "tel",
+          placeholder: "Enter phone number",
+        },
+      ],
+    },
+
     {
       title: "Enter Email",
       fields: [

@@ -87,7 +87,7 @@ const config=  {
           name: "role",
           type: "selectAlt",
           placeholder: "Select Role",
-          data: ["admin", "patient", "doctor"], // Provide role options
+          data: ["patient", "doctor"], // Provide role options
         },
       ],
     },

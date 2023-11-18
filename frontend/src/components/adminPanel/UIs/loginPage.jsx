@@ -91,33 +91,38 @@ const LoginPage = ({ registerLink }) => {
 
 
   return (
-<div style={{
-  width: "100vw",
-  height: "100vh",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  position: "relative",
-}}>
-  <div
-    style={{
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      backgroundImage: "url(https://www.vichaivej.com/en/uploads/clinic/GMjtT8igS20160802201015.png)",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      filter: "blur(8px)", // Applying a blur effect of 8 pixels (adjust as needed)
-      zIndex: -1, // Ensure the background stays behind the content
-    }}
-  />
+    <div style={{
+      width: "100vw",
+      height: "100vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      position: "relative",
+    }}>
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: "url(https://www.vichaivej.com/en/uploads/clinic/GMjtT8igS20160802201015.png)",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "blur(8px)", // Applying a blur effect of 8 pixels (adjust as needed)
+          zIndex: -1, // Ensure the background stays behind the content
+        }}
+      />
 
 
       {loading ? <Loader /> :
         <div className='h-screen w-screen flex flex-col items-center justify-center'>
+          <div>
+            <h1 className=" text-3xl font-light ">
+              EYE CLINIC MANAGEMENT SYSTEM
+            </h1>
+          </div>
           <DynamicForm
             schema={schema}
             onDataFromGrandchild={handleDataFromGrandchild}

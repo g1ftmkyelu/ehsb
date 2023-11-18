@@ -49,7 +49,7 @@ export const HospitalAdminResources = [
     icon: BsGrid,
     metrics: [
       {
-        name: "Users",
+        name: "User Management",
         units: [
           {
             title: "admin",
@@ -108,7 +108,7 @@ export const HospitalAdminResources = [
     update: true,
     delete: true,
 
-    menu: { name: "Users", icon: FaUsers },
+    menu: { name: "User Management", icon: FaUsers },
     schema: [
       { name: "Image", title: "Image", type: "file" },
       { name: "username", title: "Username", type: "text" },
@@ -128,7 +128,7 @@ export const HospitalAdminResources = [
     view: true,
     update: true,
     delete: true,
-    menu: { name: "Users", icon: FaUsers },
+    menu: { name: "User Management", icon: FaUsers },
     schema: [
       { name: "Image", title: "Image", type: "file" },
       { name: "username", title: "User Name", type: "text" },
@@ -148,7 +148,7 @@ export const HospitalAdminResources = [
     view: true,
     update: true,
     delete: true,
-    menu: { name: "Users", icon: FaUsers },
+    menu: { name: "User Management", icon: FaUsers },
     schema: [
       { name: "Image", title: "Image", type: "file" },
       { name: "username", title: "User Name", type: "text" },
@@ -169,7 +169,7 @@ export const HospitalAdminResources = [
     view: true,
     update: true,
     delete: true,
-    menu: { name: "Users", icon: FaUsers },
+    menu: { name: "User Management", icon: FaUsers },
 
     schema: [
       { name: "Image", title: "Image", type: "file" },
@@ -193,7 +193,7 @@ export const HospitalAdminResources = [
     edit: true,
     update: true,
     delete: true,
-    menu: { name: "stock", icon: FaShoppingBag },
+    menu: { name: "Stock Management", icon: FaShoppingBag },
     schema: [
       { name: "image", title: "Image", type: "file" },
       { name: "name", title: "Product Name", type: "text" },
@@ -222,7 +222,7 @@ export const HospitalAdminResources = [
     edit: true,
     update: true,
     delete: true,
-    menu: { name: "stock", icon: FaShoppingBag },
+    menu: { name: "Stock Management", icon: FaShoppingBag },
     schema: [
       { name: "image", title: "Image", type: "file" },
       { name: "name", title: "Product Name", type: "text" },
@@ -252,7 +252,7 @@ export const HospitalAdminResources = [
     edit: true,
     update: true,
     delete: true,
-    menu: { name: "stock", icon: FaShoppingBag },
+    menu: { name: "Stock Management", icon: FaShoppingBag },
     schema: [
       { name: "image", title: "Image", type: "file" },
       { name: "name", title: "Product Name", type: "text" },
@@ -282,7 +282,7 @@ export const HospitalAdminResources = [
     edit: true,
     update: true,
     delete: true,
-    menu: { name: "stock", icon: FaShoppingBag },
+    menu: { name: "Stock Management", icon: FaShoppingBag },
     schema: [
       { name: "image", title: "Image", type: "file" },
       { name: "name", title: "Product Name", type: "text" },
@@ -311,7 +311,7 @@ export const HospitalAdminResources = [
     edit: true,
     update: true,
     delete: true,
-    menu: { name: "stock", icon: FaShoppingBag },
+    menu: { name: "Stock Management", icon: FaShoppingBag },
     schema: [
       { name: "image", title: "Image", type: "file" },
       { name: "name", title: "Medication Name", type: "text" },

@@ -19,7 +19,7 @@ const schema = [
 
 ];
 
-const LoginPage = ({registerLink}) => {
+const LoginPage = ({ registerLink }) => {
   const [dataFromGrandchild, setDataFromGrandchild] = useState({});
   const { token, loading } = useSelector((state) => state.auth);
   const nav = useNavigate();
@@ -91,16 +91,33 @@ const LoginPage = ({registerLink}) => {
 
 
   return (
-    <div style={{
-      width: "100vw",
-      height: "100vh",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    }}>
+<div style={{
+  width: "100vw",
+  height: "100vh",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  position: "relative",
+}}>
+  <div
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      backgroundImage: "url(https://www.vichaivej.com/en/uploads/clinic/GMjtT8igS20160802201015.png)",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      filter: "blur(8px)", // Applying a blur effect of 8 pixels (adjust as needed)
+      zIndex: -1, // Ensure the background stays behind the content
+    }}
+  />
+
 
       {loading ? <Loader /> :
-        <div  className='h-screen w-screen flex items-center justify-center bg-slate-200'>
+        <div className='h-screen w-screen flex flex-col items-center justify-center'>
           <DynamicForm
             schema={schema}
             onDataFromGrandchild={handleDataFromGrandchild}
@@ -108,7 +125,7 @@ const LoginPage = ({registerLink}) => {
           />
           <div>
             <h1 className=" text-lg font-bold">
-              don't have an account?<br/>
+              Don't have an account?<br />
               <Link className="text-blue-600 text-3xl" to={'/register'}>register</Link>
             </h1>
           </div>

@@ -5,3 +5,58 @@
 @tailwind utilities;
 
 
+
+/* CSS file */
+.metric-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .metric-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .metric-icon {
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 16px;
+  }
+  
+  .metric-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .metric-data {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #4b5563;
+  }
+  
+  .see-more-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .see-more-link:hover {
+    background-color: #2980b9;
+  }
+  
+  .arrow-icon {
+    margin-left: 8px;
+  }
+  

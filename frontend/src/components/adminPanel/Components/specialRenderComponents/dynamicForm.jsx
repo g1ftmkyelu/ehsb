@@ -295,7 +295,7 @@ const DynamicForm = ({ schema, data, action, onDataFromGrandchild, title }) => {
                                             ) : (
                                                 <>
                                                     <RiEdit2Fill className="mr-2" />
-                                                    <span>Update</span>
+                                                    <span>Change Image</span>
                                                 </>
                                             )}
                                         </label>

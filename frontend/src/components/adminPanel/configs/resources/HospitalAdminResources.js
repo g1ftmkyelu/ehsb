@@ -168,25 +168,7 @@ export const HospitalAdminResources = [
     ],
   },
 
-  {
-    path: "medications",
-    dataSource: "https://ehcs.onrender.com/medications",
-    icon: IoMdMedkit,
-    sidePanel: false,
-    type: "crudGrid",
-    add: true,
-    view: true,
-    edit: true,
-    update: true,
-    delete: true,
-    schema: [
-      { name: "image", title: "Image", type: "file" },
-      { name: "name", title: "Medication Name", type: "text" },
-      { name: "dosage", title: "Dosage", type: "textarea" },
-      { name: "quantityInStock", title: "Quantity In Stock", type: "number" },
 
-    ],
-  },
   {
     path: "All Products",
     dataSource: "https://ehcs.onrender.com/products",
@@ -305,7 +287,26 @@ export const HospitalAdminResources = [
       },
     ],
   },
+  {
+    path: "medications",
+    dataSource: "https://ehcs.onrender.com/medications",
+    icon: IoMdMedkit,
+    sidePanel: false,
+    type: "crudGrid",
+    add: true,
+    view: true,
+    edit: true,
+    update: true,
+    delete: true,
+    menu: { name: "stock", icon: FaShoppingBag },
+    schema: [
+      { name: "image", title: "Image", type: "file" },
+      { name: "name", title: "Medication Name", type: "text" },
+      { name: "dosage", title: "Dosage", type: "textarea" },
+      { name: "quantityInStock", title: "Quantity In Stock", type: "number" },
 
+    ],
+  },
   {
     path: "generic report",
     dataSource: "https://ehcs.onrender.com/services",

@@ -1,164 +1,92 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import ReactPaginate from "react-paginate";
+import "./CardGrid.css";
 import {
-  useFetchAllResources,
-  useDeleteResource,
-  useCreateResource,
-  useUpdateResource,
-} from "../../utils/getAPI";
-import { toast } from "react-toastify";
-import Table from "../crudComponents/Table";
-import Loader from "../specialRenderComponents/Loader";
-import CrudModals from "../coreComponents/CrudModals";
-import CardGrid from "./CardGrid";
+  CrudViewButton,
+  CrudEditButton,
+  CrudDeleteButton,
+} from "./CrudButtons";
+import ViewData from "../specialRenderComponents/viewData";
 
-import {
-  openCrudEditModal,
-  openCrudAddModal,
-  closeViewModal,
+const CardGrid = ({
+  rdata,
+  data,
+  numColumns,
   openCrudViewModal,
+  openCrudEditModal,
   handleDelete,
-} from "../../utils/crudFunctions";
-import { FaBoxes, FaList } from "react-icons/fa";
-import { BiGrid, BiListUl, BiPlus } from "react-icons/bi";
-import { CrudAddButton } from "./CrudButtons";
-import { changeNumColumns } from "../../../../Redux/slices/gridColumnThunk";
-import { useSelector, useDispatch } from 'react-redux';
-import { CiBoxList, CiGrid32 } from "react-icons/ci";
+}) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(9); // Adjust this to your desired items per page.
 
-const CrudGrid = ({ rdata, stausCaption }) => {
-  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
-  const [action, setAction] = useState("");
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [dataFromGrandchild, setDataFromGrandchild] = useState("");
-  const [edit, setEdit] = useState();
-  const [searchInput, setSearchInput] = useState("");
+  const gridStyle = {
+    gridTemplateColumns: `repeat(${numColumns}, 1fr)`, // Dynamic number of columns
+  };
 
-  const numColumns = useSelector((state) => state.numColumns);
-  const dispatch = useDispatch();
+  const offset = currentPage * itemsPerPage;
+  const paginatedData = data.slice(offset, offset + itemsPerPage);
 
+  const handlePageClick = (data) => {
+    setCurrentPage(data.selected);
+  };
 
-  const deleteResource = useDeleteResource(rdata.path, rdata.dataSource);
-  const createResource = useCreateResource(rdata.path, rdata.dataSource);
-  const editResource = useUpdateResource(rdata.path, rdata.dataSource);
-
-  let { data, isLoading, error, refetch } = useFetchAllResources(
-    rdata.path,
-    rdata.dataSource
-  );
-
-  useEffect(() => {
-    console.log(data);
-  });
-
-
-
-  const handleFilter = (value) => {
-    setSearchInput(value);
-    data = data.filter(
-      (item) => item.name.toLowerCase().includes(searchInput.toLowerCase()) // Replace "name" with the property you want to search
-    );
+  const handleItemsPerPageChange = (event) => {
+    const newItemsPerPage = parseInt(event.target.value);
+    setItemsPerPage(newItemsPerPage);
+    setCurrentPage(0); // Reset to the first page when changing items per page.
   };
 
   return (
     <>
-      {isLoading || createResource.isLoading || editResource.isLoading || deleteResource.isLoading? (
-        <Loader />
-      ) : (
-        <>
 
-          <div className="px-24 py-10">
-            <div
-              style={{
-                display: "flex",
-                alignContent: "center",
-                paddingBottom: "15px",
-              }}
-            >
-              <input
-                style={{ width: "95%" }}
-                type="text"
-                placeholder="Search..." // Step 2: Add a search input
-                className=" border-none rounded-lg"
-                onChange={(e) => { handleFilter(e.target.value) }} // Step 3: Update the search input state
-              />
 
-              {numColumns != 1 ?
-                <button className="bg-blue-500 text-white p-4 rounded-md font-extrabold ml-2" onClick={() => dispatch(changeNumColumns(1))}>
-                  <FaList />
-                </button> :
+      <div className="card-grid" style={gridStyle}>
+        {paginatedData.map((item) => (
+          <div key={item.id} className="card">
+            <ViewData data={item} schema={rdata.schema} />
+            <div className="button-container flex items-center justify-between w-28 py-5">
 
-                <button className="bg-blue-500 text-white p-4 rounded-md font-extrabold ml-2" onClick={() => dispatch(changeNumColumns(3))}>
-                  <FaBoxes />
-                </button>
+              {rdata.view && (
+                <CrudViewButton {...{ openCrudViewModal, item }} />
+              )}
 
-              }
+              {rdata.edit && (
+                <CrudEditButton {...{ openCrudEditModal, item }} />
+              )}
 
-              {rdata.add &&
-
-                <CrudAddButton
-                  {...{
-                    openCrudAddModal: () =>
-                      openCrudAddModal(
-                        setAction,
-                        setEdit,
-                        setSelectedItem,
-                        setIsAddModalOpen
-                      ),
-                  }}
-                />
-              }
+              {rdata.delete && <CrudDeleteButton {...{ handleDelete, item }} />}
             </div>
-
-            <CardGrid
-              {...{
-                rdata,
-                data,
-                numColumns,
-                openCrudViewModal: (item) =>
-                  openCrudViewModal(
-                    item,
-                    setSelectedItem,
-                    setIsViewModalOpen
-                  ),
-                openCrudEditModal: (item) =>
-                  openCrudEditModal(
-                    item,
-                    setAction,
-                    setEdit,
-                    setSelectedItem,
-                    setIsEditModalOpen
-                  ),
-                handleDelete: (itemId) =>
-                  handleDelete(itemId, deleteResource, refetch, toast),
-              }}
-            />
           </div>
-
-
-          <CrudModals
-            {...{
-              isAddModalOpen,
-              setSelectedItem,
-              setIsAddModalOpen,
-              selectedItem,
-              action,
-              rdata,
-              setDataFromGrandchild,
-              createResource,
-              refetch,
-              editResource,
-              isEditModalOpen,
-              setIsEditModalOpen,
-              isViewModalOpen,
-              setIsViewModalOpen,
-            }}
-          />
-        </>
-      )}
+        ))}
+      </div>
+      <ReactPaginate
+        previousLabel={<button>Previous</button>}
+        nextLabel={<button>Next</button>}
+        breakLabel={"..."}
+        pageCount={Math.ceil(data.length / itemsPerPage)}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageClick}
+        containerClassName={"pagination"}
+        subContainerClassName={"pages pagination"}
+        activeClassName={"active"}
+      />
+      <div className="items-per-page-dropdown">
+        <label htmlFor="itemsPerPage">Items per page: </label>
+        <select
+          id="itemsPerPage"
+          value={itemsPerPage}
+          onChange={handleItemsPerPageChange}
+        >
+          <option value={5}>5</option>
+          <option value={10}>10</option>
+          <option value={15}>15</option>
+          <option value={20}>20</option>
+          {/* Add more options as needed */}
+        </select>
+      </div>
     </>
   );
 };
 
-export default CrudGrid;
+export default CardGrid;

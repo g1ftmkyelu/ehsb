@@ -53,7 +53,7 @@ export const HospitalAdminResources = [
         units: [
           {
             title: "admin",
-            path: "users",
+            path: "all users",
             icon: BiSolidGroup,
             dataSource: "https://ehcs.onrender.com/users/count?role=admin",
             dataType: "count",
@@ -102,7 +102,7 @@ export const HospitalAdminResources = [
     dataSource: "https://ehcs.onrender.com/users",
     icon: FaUserNurse,
     sidePanel: false,
-    type: "crud",
+    type: "crudGrid",
     add: true,
     view: true,
 
@@ -111,7 +111,8 @@ export const HospitalAdminResources = [
 
     menu: { name: "Users", icon: FaUsers },
     schema: [
-      { name: "username", title: "User Name", type: "text" },
+      { name: "Image", title: "Image", type: "file" },
+      { name: "username", title: "Username", type: "text" },
       { name: "email", title: "Email", type: "text" },
       { name: "firstName", title: "First Name", type: "text" },
       { name: "lastName", title: "Last Name", type: "text" },

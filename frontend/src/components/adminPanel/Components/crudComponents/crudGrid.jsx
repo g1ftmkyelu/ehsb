@@ -63,7 +63,7 @@ const CrudGrid = ({ rdata, stausCaption }) => {
 
   return (
     <>
-      {isLoading ? (
+      {isLoading || createResource.isLoading || editResource.isLoading || deleteResource.isLoading? (
         <Loader />
       ) : (
         <>
@@ -95,18 +95,20 @@ const CrudGrid = ({ rdata, stausCaption }) => {
 
               }
 
+              {rdata.add &&
 
-              <CrudAddButton
-                {...{
-                  openCrudAddModal: () =>
-                    openCrudAddModal(
-                      setAction,
-                      setEdit,
-                      setSelectedItem,
-                      setIsAddModalOpen
-                    ),
-                }}
-              />
+                <CrudAddButton
+                  {...{
+                    openCrudAddModal: () =>
+                      openCrudAddModal(
+                        setAction,
+                        setEdit,
+                        setSelectedItem,
+                        setIsAddModalOpen
+                      ),
+                  }}
+                />
+              }
             </div>
 
             <CardGrid

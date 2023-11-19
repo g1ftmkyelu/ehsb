@@ -7,15 +7,13 @@ import { useNavigate } from 'react-router-dom';
 import SelectField from './inputComponents/SelectInput';
 import SelectFieldAlt from './inputComponents/selectField';
 import { MoonLoader } from "react-spinners";
+import TagsInput from './inputComponents/TagsInput';
 import ApiSelect from './inputComponents/apiSelect';
-
-
-
-
+import { FileInput } from './inputComponents';
 
 const DynamicWizard = ({ rdata }) => {
 
-
+  const [tagData, setTagData] = useState({});
   const { steps, name, base } = rdata;
   const navigate = useNavigate()
   const initialFormData = steps.reduce((acc, step) => {
@@ -30,58 +28,43 @@ const DynamicWizard = ({ rdata }) => {
   const handleChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
   };
+  const [validationErrors, setValidationErrors] = useState({});
 
+  // Function to validate fields
+  const validateFields = () => {
+    let fieldErrors = {};
 
-
-  const [isPageLoaded, setIsPageLoaded] = useState(
-    localStorage.getItem('isPageLoaded') === 'true'
-  );
-
-  const reload = () => {
-    if (isPageLoaded) {
-      console.log('page is reloaded');
-    } else {
-      setIsPageLoaded(true);
-      localStorage.setItem('isPageLoaded', 'true');
-      window.location.reload();
-    }
-  };
-
-  useEffect(() => {
-    reload();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-
-  const currentStepFields = steps[currentStep].fields;
-
-  const isValidStep = () => {
-    const requiredFields = currentStepFields.filter(field => field.required);
-    for (const field of requiredFields) {
-      if (!formData[field.name]) {
-        // You can display an error message here or handle it as needed
-        Swal.fire({
-          icon: 'error',
-          title: 'Validation Error',
-          text: `Please fill in ${field.name}.`,
-        });
-        return false;
+    stepFields.forEach((field) => {
+      // Check if the field is required and empty
+      if (!formData[field.name] && field.required) {
+        fieldErrors[field.name] = `${field.name} is required`;
+      } else {
+        delete fieldErrors[field.name]; // Clear validation error if field is filled
       }
-    }
-    return true;
+    });
+
+    setValidationErrors(fieldErrors);
   };
+
+  const handleBlur = () => {
+    validateFields();
+  };
+
 
   const handleNext = () => {
-    if (isValidStep()) {
-      setCurrentStep(prevStep => prevStep + 1);
-      setStepFields(steps[currentStep + 1].fields);
-    }
+
+    const nextStep = currentStep + 1;
+    setCurrentStep(nextStep);
+    setStepFields(steps[nextStep].fields);
+
   };
 
   const handlePrevious = () => {
-    setCurrentStep((prevStep) => prevStep - 1);
-    setStepFields(steps[currentStep - 1].fields);
+    const prevStep = currentStep - 1;
+    setCurrentStep(prevStep);
+    setStepFields(steps[prevStep].fields);
   };
+
 
 
 
@@ -108,6 +91,7 @@ const DynamicWizard = ({ rdata }) => {
     try {
       const formDataWithPatient = {
         ...formData,
+        ...tagData
 
       };
 
@@ -182,22 +166,48 @@ const DynamicWizard = ({ rdata }) => {
                   dataSource={field.dataSource}
                 />
               ) : field.type === 'apiselect' ? (
-                  <ApiSelect
+                <ApiSelect
                   key={field.name}
                   title={steps[currentStep].title}
                   value={formData[field.name]}
                   onChange={(value) => handleChange(field.name, value)}
                   displayModeKey={field.displaykey}
                   dataSource={field.dataSource}
-                  />
-              ): field.type === 'textarea' ? (
+                />
+              ) : field.type === 'textarea' ? (
                 <textarea
                   key={field.name}
                   placeholder={field.placeholder || ''}
                   value={formData[field.name]}
                   onChange={(e) => handleChange(field.name, e.target.value)}
+                  onBlur={handleBlur}
+                  required
                   className="border border-gray-300 p-3 w-full rounded-md mb-4"
                 />
+              ) : field.type === 'tags' ? (
+                <div key={field.name}>
+                  <label className="form-label" htmlFor={field.name}>
+                    {field.name}
+                  </label>
+                  <TagsInput
+                    tags={tagData[field.name] || []} // Pass tags data as props
+                    placeholder={`Add ${field.name.toLowerCase()}...`}
+                    onUpdateTags={(tags) => setTagData({ ...tagData, [field.name]: tags })} // Handle tag updates
+                  />
+                </div>
+
+              ) : field.type === 'image' ? (
+                <div key={field.name}>
+                  <label className="form-label" htmlFor={field.name}>
+                    {field.name}
+                  </label>
+                  <FileInput
+                    fieldName={field.name}
+                    formData={formData}
+                    setFormData={setFormData}
+                  />
+                </div>
+
               ) : (
                 <input
                   key={field.name}
@@ -206,6 +216,8 @@ const DynamicWizard = ({ rdata }) => {
                   value={formData[field.name]}
                   onChange={(e) => handleChange(field.name, e.target.value)}
                   className="border border-gray-300 p-3 w-full rounded-md mb-4"
+                  onBlur={handleBlur}
+                  required
                 />
               )
             )}
@@ -217,7 +229,12 @@ const DynamicWizard = ({ rdata }) => {
                 </button>
               )}
               {currentStep < steps.length - 1 ? (
-                <button onClick={handleNext} className="bg-blue-500 text-white px-6 py-3 rounded-md">
+                // Disable "Next" button if there are validation errors in the current step
+                <button
+                  onClick={handleNext}
+                  className="bg-blue-500 text-white px-6 py-3 rounded-md"
+                  disabled={Object.keys(validationErrors).length > 0}
+                >
                   Next
                 </button>
               ) : (

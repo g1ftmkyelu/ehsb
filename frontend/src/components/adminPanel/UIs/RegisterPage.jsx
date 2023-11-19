@@ -85,7 +85,7 @@ const config=  {
       fields: [
         {
           name: "Image",
-          type: "url",
+          type: "image",
           placeholder: "image url",
         },
       ],

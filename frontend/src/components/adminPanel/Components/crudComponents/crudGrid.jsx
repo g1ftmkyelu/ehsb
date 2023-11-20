@@ -91,12 +91,13 @@ const CrudGrid = ({ rdata, stausCaption }) => {
                 alignContent: "center",
                 paddingBottom: "15px",
               }}
+              className="bg-white p-5 mb-4 shadow-md rounded-lg"
             >
               <input
                 style={{ width: "95%" }}
                 type="text"
                 placeholder={`Search ${rdata.path}...`}
-                className="border-none rounded-lg px-5 font-extrabold"
+                className="border-none rounded-lg px-5 font-extrabold bg-slate-200"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />

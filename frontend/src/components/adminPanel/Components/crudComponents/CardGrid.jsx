@@ -42,6 +42,7 @@ const CardGrid = ({
 
       <div className="card-grid" style={gridStyle}>
         {paginatedData.map((item) => (
+
           <div key={item.id} className="card">
             <ViewData data={item} schema={rdata.schema} />
             <div className="button-container flex items-center justify-between w-28 py-5">
@@ -57,6 +58,7 @@ const CardGrid = ({
               {rdata.delete && <CrudDeleteButton {...{ handleDelete, item }} />}
             </div>
           </div>
+          
         ))}
       </div>
       <ReactPaginate

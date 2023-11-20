@@ -1,11 +1,10 @@
-import { Fa500Px, FaCalendar, FaUser } from "react-icons/fa";
+import { Fa500Px, FaCalendar, FaGlasses, FaList, FaSearch, FaShoppingBag, FaTimes, FaUser } from "react-icons/fa";
 import { BiCheckCircle, BiCheckDouble, BiGrid, BiTimer } from "react-icons/bi";
-import { 
+import { IoMdMedkit, IoMdEyeOff } from 'react-icons/io';
+import {
   FaCalendarAlt,
-  FaList,
   FaCheckCircle,
   FaTimesCircle,
-  FaTimes,
 } from "react-icons/fa";
 
 
@@ -299,34 +298,41 @@ export const PatientResources = [
       },
     ],
   },
+
   {
-    path: "invoices",
-    dataSource: "https://ehcs.onrender.com/invoicings",
-    icon: Fa500Px,
+    path: "our products",
+    dataSource: "https://ehcs.onrender.com/products",
+    icon: FaShoppingBag,
     sidePanel: false,
-    type: "crudGrid",
-    add: false,
+    type: "shop",
+    add: true,
     view: true,
-    edit: false,
-    update: false,
-    delete: false,
-    menu: { name: "resources", icon: FaList },
+    edit: true,
+    update: true,
+    delete: true,
     schema: [
-      { name: "patientId", title: "Patient ID", type: "text" },
-      // { name: "servicesProvided", title: "Services Provided", type: "array" },
-      { name: "totalCost", title: "Total Cost", type: "number" },
+      { name: "image", title: "Image", type: "file" },
+      { name: "name", title: "Product Name", type: "text" },
+      { name: "price", title: "Price", type: "number" },
+      { name: "unitsAvailable", title: "Units Available", type: "number" },
       {
-        name: "paymentStatus",
-        title: "Payment Status",
+        name: "category",
+        title: "category",
         type: "select",
-        options: ["Pending", "Paid"],
-        default: "Pending",
+        options: [
+          { label: "Glasses", value: "Glasses" },
+          { label: "Lenses", value: "Lenses" },
+          { label: "Contact Lenses", value: "Contact Lenses" },
+        ],
       },
     ],
   },
+
+
+
   {
     path: "profile",
-    dataSource: "https://ehcs.onrender.com/users",   
+    dataSource: "https://ehcs.onrender.com/users",
     icon: FaUser,
     sidePanel: false,
     type: "singleton",

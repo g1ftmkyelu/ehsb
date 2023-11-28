@@ -2,43 +2,24 @@ import React from 'react';
 import DynamicWizard from '../Components/specialRenderComponents/MyDynamicWizard';
 import { FaUser, FaUserPlus } from 'react-icons/fa';
 
-const config=  {
-    path: "Add_New_User",
-    type: "wizard",
-    dataSource: "https://ehcs.onrender.com/register",
-    icon: FaUserPlus,
-    menu: { name: "Users", icon: FaUser },
-    steps:[
-       {      title: "Enter First Name",
-      fields: [
-        {
-          name: "firstName",
-          type: "text",
-          placeholder: "First Name",
-        },
-      ],
-    },
-    {
-      title: "Enter Last Name",
-      fields: [
-        {
-          name: "lastName",
-          type: "text",
-          placeholder: "Last Name",
-        },
-      ],
-    },
-    {
-      title: "Choose Username",
-      fields: [
-        {
-          name: "username",
-          type: "text",
-          placeholder: "Username",
-        },
-      ],
-    },
+const config = {
+  path: "Add_New_User",
+  type: "wizard",
+  dataSource: "https://ehcs.onrender.com/register",
+  icon: FaUserPlus,
+  menu: { name: "Users", icon: FaUser },
+  steps: [
 
+    {
+      title: "Enter fullname",
+      fields: [
+        {
+          name: "fullname",
+          type: "text",
+          placeholder: "fullname",
+        },
+      ],
+    },
     {
       title: "Enter Email",
       fields: [
@@ -54,7 +35,7 @@ const config=  {
       fields: [
         {
           name: "password",
-          type: "text",
+          type: "password",
           placeholder: "Password",
         },
       ],
@@ -69,6 +50,7 @@ const config=  {
         },
       ],
     },
+
     {
       title: "Select Role",
       fields: [
@@ -76,12 +58,16 @@ const config=  {
           name: "role",
           type: "selectAlt",
           placeholder: "Select Role",
-          data: ["patient", "doctor"], // Provide role options
+          data: [
+            "patient",
+            "doctor",
+            "administrator"
+          ], // Provide role options
         },
       ],
     },
     {
-      title: "Enter profile Image link",
+      title: "Enter profile Image link (optional)",
       fields: [
         {
           name: "Image",
@@ -89,17 +75,18 @@ const config=  {
           placeholder: "image url",
         },
       ],
-    }],
-    successMessage: "Registred successfully!",
-    successPath: "login",
-  }
+    },
+  ],
+  successMessage: "Registred successfully!",
+  successPath: "login",
+}
 
 const RegisterPage = () => {
-    return (
-        <div className='h-screen w-screen flex items-center justify-center bg-slate-200'>
-            <DynamicWizard rdata={config}/>
-        </div>
-    );
+  return (
+    <div className='h-screen w-screen flex items-center justify-center bg-slate-200'>
+      <DynamicWizard rdata={config} />
+    </div>
+  );
 }
 
 export default RegisterPage;

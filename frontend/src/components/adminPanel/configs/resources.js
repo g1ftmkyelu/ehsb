@@ -167,7 +167,7 @@ export const resources = [
         sidePanel: false,
         type: "select",
         options: [
-          { label: "Administrator", value: "admin" },
+          { label: "Administrator", value: "administrator" },
           { label: "Customer", value: "buyer" },
           { label: "Seller", value: "seller" },
         ],

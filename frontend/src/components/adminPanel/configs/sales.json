@@ -1,0 +1,202 @@
+[
+    {
+        "productName": "Eye Glasses model 1",
+        "quantitySold": 7,
+        "amount": 105000,
+        "totalPrice": 105000,
+        "_id": "65661aa57ee9c526c5745c68",
+        "__v": 0,
+        "createdAt": "2022-12-25T16:51:49.410Z",
+        "updatedAt": "2022-12-25T16:51:49.410Z"
+    },
+    {
+        "productName": "loptic lens model 2",
+        "quantitySold": 3,
+        "amount": 18000,
+        "totalPrice": 18000,
+        "_id": "65661aa57ee9c526c5745c69",
+        "__v": 0,
+        "createdAt": "2022-11-13T16:51:49.411Z",
+        "updatedAt": "2022-11-13T16:51:49.411Z"
+    },
+    {
+        "productName": "contact lens model 1",
+        "quantitySold": 5,
+        "amount": 10000,
+        "totalPrice": 10000,
+        "_id": "65661aa57ee9c526c5745c6a",
+        "__v": 0,
+        "createdAt": "2023-01-02T16:51:49.412Z",
+        "updatedAt": "2023-01-02T16:51:49.412Z"
+    },
+    {
+        "productName": "Eye glasses model 2",
+        "quantitySold": 9,
+        "amount": 90000,
+        "totalPrice": 90000,
+        "_id": "65661aa57ee9c526c5745c6b",
+        "__v": 0,
+        "createdAt": "2022-10-05T16:51:49.412Z",
+        "updatedAt": "2022-10-05T16:51:49.412Z"
+    },
+    {
+        "productName": "loptic lens model 1",
+        "quantitySold": 2,
+        "amount": 8000,
+        "totalPrice": 8000,
+        "_id": "65661aa57ee9c526c5745c6c",
+        "__v": 0,
+        "createdAt": "2023-03-18T16:51:49.412Z",
+        "updatedAt": "2023-03-18T16:51:49.412Z"
+    },
+    {
+        "productName": "Eye Glasses model 1",
+        "quantitySold": 6,
+        "amount": 90000,
+        "totalPrice": 90000,
+        "_id": "65661aa57ee9c526c5745c6d",
+        "__v": 0,
+        "createdAt": "2023-07-07T16:51:49.412Z",
+        "updatedAt": "2023-07-07T16:51:49.412Z"
+    },
+    {
+        "productName": "loptic lens model 2",
+        "quantitySold": 5,
+        "amount": 30000,
+        "totalPrice": 30000,
+        "_id": "65661aa57ee9c526c5745c6e",
+        "__v": 0,
+        "createdAt": "2022-09-29T16:51:49.412Z",
+        "updatedAt": "2022-09-29T16:51:49.412Z"
+    },
+    {
+        "productName": "contact lens model 1",
+        "quantitySold": 8,
+        "amount": 16000,
+        "totalPrice": 16000,
+        "_id": "65661aa57ee9c526c5745c6f",
+        "__v": 0,
+        "createdAt": "2023-06-01T16:51:49.413Z",
+        "updatedAt": "2023-06-01T16:51:49.413Z"
+    },
+    {
+        "productName": "contact lens model 2",
+        "quantitySold": 4,
+        "amount": 12000,
+        "totalPrice": 12000,
+        "_id": "65661aa57ee9c526c5745c70",
+        "__v": 0,
+        "createdAt": "2023-02-14T16:51:49.413Z",
+        "updatedAt": "2023-02-14T16:51:49.413Z"
+    },
+    {
+        "productName": "Eye glasses model 2",
+        "quantitySold": 4,
+        "amount": 40000,
+        "totalPrice": 40000,
+        "_id": "65661aa57ee9c526c5745c71",
+        "__v": 0,
+        "createdAt": "2022-08-30T16:51:49.413Z",
+        "updatedAt": "2022-08-30T16:51:49.413Z"
+    },
+    {
+        "productName": "loptic lens model 1",
+        "quantitySold": 5,
+        "amount": 20000,
+        "totalPrice": 20000,
+        "_id": "65661aa57ee9c526c5745c72",
+        "__v": 0,
+        "createdAt": "2022-11-24T16:51:49.413Z",
+        "updatedAt": "2022-11-24T16:51:49.413Z"
+    },
+    {
+        "productName": "contact lens model 2",
+        "quantitySold": 2,
+        "amount": 6000,
+        "totalPrice": 6000,
+        "_id": "65661aa57ee9c526c5745c73",
+        "__v": 0,
+        "createdAt": "2023-04-22T16:51:49.414Z",
+        "updatedAt": "2023-04-22T16:51:49.414Z"
+    },
+    {
+        "productName": "Eye Glasses model 1",
+        "quantitySold": 10,
+        "amount": 150000,
+        "totalPrice": 150000,
+        "_id": "65661aa57ee9c526c5745c74",
+        "__v": 0,
+        "createdAt": "2023-08-17T16:51:49.415Z",
+        "updatedAt": "2023-08-17T16:51:49.415Z"
+    },
+    {
+        "productName": "loptic lens model 2",
+        "quantitySold": 7,
+        "amount": 42000,
+        "totalPrice": 42000,
+        "_id": "65661aa57ee9c526c5745c75",
+        "__v": 0,
+        "createdAt": "2022-12-29T16:51:49.415Z",
+        "updatedAt": "2022-12-29T16:51:49.415Z"
+    },
+    {
+        "productName": "contact lens model 1",
+        "quantitySold": 6,
+        "amount": 12000,
+        "totalPrice": 12000,
+        "_id": "65661aa57ee9c526c5745c76",
+        "__v": 0,
+        "createdAt": "2022-10-18T16:51:49.415Z",
+        "updatedAt": "2022-10-18T16:51:49.415Z"
+    },
+    {
+        "productName": "Eye glasses model 2",
+        "quantitySold": 5,
+        "amount": 50000,
+        "totalPrice": 50000,
+        "_id": "65661aa57ee9c526c5745c77",
+        "__v": 0,
+        "createdAt": "2023-05-12T16:51:49.415Z",
+        "updatedAt": "2023-05-12T16:51:49.415Z"
+    },
+    {
+        "productName": "loptic lens model 1",
+        "quantitySold": 3,
+        "amount": 12000,
+        "totalPrice": 12000,
+        "_id": "65661aa57ee9c526c5745c78",
+        "__v": 0,
+        "createdAt": "2022-11-08T16:51:49.415Z",
+        "updatedAt": "2022-11-08T16:51:49.415Z"
+    },
+    {
+        "productName": "contact lens model 2",
+        "quantitySold": 7,
+        "amount": 21000,
+        "totalPrice": 21000,
+        "_id": "65661aa57ee9c526c5745c79",
+        "__v": 0,
+        "createdAt": "2023-03-05T16:51:49.415Z",
+        "updatedAt": "2023-03-05T16:51:49.415Z"
+    },
+    {
+        "productName": "Eye Glasses model 1",
+        "quantitySold": 8,
+        "amount": 120000,
+        "totalPrice": 120000,
+        "_id": "65661aa57ee9c526c5745c7a",
+        "__v": 0,
+        "createdAt": "2023-10-01T16:51:49.415Z",
+        "updatedAt": "2023-10-01T16:51:49.415Z"
+    },
+    {
+        "productName": "loptic lens model 2",
+        "quantitySold": 6,
+        "amount": 36000,
+        "totalPrice": 36000,
+        "_id": "65661aa57ee9c526c5745c7b",
+        "__v": 0,
+        "createdAt": "2023-01-25T16:51:49.416Z",
+        "updatedAt": "2023-01-25T16:51:49.416Z"
+    }
+]

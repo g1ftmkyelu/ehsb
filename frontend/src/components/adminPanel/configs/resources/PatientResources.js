@@ -1,4 +1,4 @@
-import { Fa500Px, FaCalendar, FaGlasses, FaList, FaSearch, FaShoppingBag, FaTimes, FaUser } from "react-icons/fa";
+import { Fa500Px, FaCalendar, FaCogs, FaGlasses, FaList, FaMedkit, FaRegEye, FaSearch, FaShoppingBag, FaTimes, FaUser, FaUserCog } from "react-icons/fa";
 import { BiCheckCircle, BiCheckDouble, BiGrid, BiTimer } from "react-icons/bi";
 import { IoMdMedkit, IoMdEyeOff } from 'react-icons/io';
 import {
@@ -6,6 +6,8 @@ import {
   FaCheckCircle,
   FaTimesCircle,
 } from "react-icons/fa";
+import { BsBookmarkDash, BsEye } from "react-icons/bs";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 
 
@@ -25,7 +27,7 @@ export const PatientResources = [
             dataSource: "https://ehcs.onrender.com/appointments/count",
             dataType: "count",
             color: "blue",
-            seeMore: true,
+
             onClick: () => {
               console.log("Clicked on Appointments");
             },
@@ -42,7 +44,7 @@ export const PatientResources = [
             field: "status",
             value: "Scheduled",
             color: "lightBlue",
-            seeMore: true,
+
             onClick: () => {
               console.log("Clicked on Patients");
             },
@@ -59,7 +61,7 @@ export const PatientResources = [
             field: "status",
             value: "Confirmed",
             color: "lime",
-            seeMore: true,
+
             onClick: () => {
               console.log("Clicked on Confirmed Appointments");
             },
@@ -76,7 +78,7 @@ export const PatientResources = [
             field: "status",
             value: "Completed",
             color: "green",
-            seeMore: true,
+
             onClick: () => {
               console.log("Clicked on Completed Appointments");
             },
@@ -93,7 +95,7 @@ export const PatientResources = [
             field: "status",
             value: "Cancelled",
             color: "red",
-            seeMore: true,
+
             onClick: () => {
               console.log("Clicked on Cancelled Appointments");
             },
@@ -103,6 +105,27 @@ export const PatientResources = [
         ],
       },
     ],
+    widgetConfig: {
+      tableResource: {
+        path: "Your appointments",
+        dataSource: "https://ehcs.onrender.com/appointments",
+        type: "crud",
+        addResource: true,
+        view: true,
+        icon: BsBookmarkDash,
+        schema: [
+          { name: "doctor", title: "Doctor", type: "text" },
+          { name: "date", title: "Date", type: "date" },
+          { name: "time", title: "Time", type: "time" },
+
+        ],
+      },
+      chartData: {
+        chartType: "doughnut",
+        fieldName: "status",
+        resource: "appointments",
+      }
+    }
   },
 
   {
@@ -110,14 +133,25 @@ export const PatientResources = [
     type: "wizard",
     dataSource: "https://ehcs.onrender.com/appointments",
     icon: FaCalendar,
-    menu: { name: "Appointments", icon: FaList },
     steps: [
       {
-        title: "Enter Your full name",
+        title: "Enter Appointment Title (Could be anything as long as it describes the appointment)",
+        fields: [
+          {
+            name: "title",
+            type: "text",
+            placeholder: "Enter Appointment Title",
+          },
+        ],
+      },
+      {
+        title: "Choose your name",
         fields: [
           {
             name: "patient",
-            placeholder: "patient's Name",
+            type: "select",
+            dataSource: "https://ehcs.onrender.com/users?role=patient",
+            displayKey: "fullname"
           },
         ],
       },
@@ -127,9 +161,8 @@ export const PatientResources = [
           {
             name: "doctor",
             type: "select",
-            placeholder: "Doctor's Name",
-            dataSource:
-              "https://ehcs.onrender.com/users?role=doctor&returnFields=firstName,lastName",
+            dataSource: "https://ehcs.onrender.com/users?role=doctor",
+            displayKey: "fullname"
           },
         ],
       },
@@ -152,151 +185,7 @@ export const PatientResources = [
       },
     ],
     successMessage: "Your Appointment has been Booked successfully!",
-    successPath: "scheduled-appointments",
-  },
-  {
-    path: "scheduled-appointments",
-    dataSource: "https://ehcs.onrender.com/appointments",
-    icon: BiTimer,
-    sidePanel: false,
-    type: "crud",
-    // add: true,
-    view: true,
-    //edit: true,
-    //update: true,
-    delete: true,
-    fetchDataByQuery: true,
-    queryField: "status",
-    queryValue: "Scheduled",
-    menu: { name: "Appointments", icon: FaList },
-    schema: [
-      {
-        name: "patient",
-        title: "Patient",
-        type: "text",
-      },
-      { name: "doctor", title: "Doctor", type: "text" },
-      { name: "date", title: "Appointment Date", type: "date" },
-      {
-        name: "status",
-        title: "Status",
-        type: "select",
-        options: [
-          { label: "Scheduled", value: "Scheduled" },
-          { label: "Confirmed", value: "Confirmed" },
-          { label: "Completed", value: "Completed" },
-          { label: "Cancelled", value: "Cancelled" },
-        ],
-      },
-    ],
-  },
-  {
-    path: "confirmed-appointments",
-    dataSource: "https://ehcs.onrender.com/appointments",
-    icon: BiCheckCircle,
-    sidePanel: false,
-    type: "crud",
-    add: false,
-    view: true,
-    //edit: true,
-    //update: true,
-    delete: true,
-    fetchDataByQuery: true,
-    queryField: "status",
-    queryValue: "Confirmed",
-    menu: { name: "Appointments", icon: FaList },
-    schema: [
-      {
-        name: "patient",
-        title: "Patient",
-        type: "text",
-      },
-      { name: "doctor", title: "Doctor", type: "text" },
-      { name: "date", title: "Appointment Date", type: "date" },
-      {
-        name: "status",
-        title: "Status",
-        type: "select",
-        options: [
-          { label: "Scheduled", value: "Scheduled" },
-          { label: "Confirmed", value: "Confirmed" },
-          { label: "Completed", value: "Completed" },
-          { label: "Cancelled", value: "Cancelled" },
-        ],
-      },
-    ],
-  },
-  {
-    path: "Completed-appointments",
-    dataSource: "https://ehcs.onrender.com/appointments",
-    icon: BiCheckDouble,
-    sidePanel: false,
-    type: "crud",
-    add: false,
-    view: true,
-    //edit: true,
-    //update: true,
-    delete: true,
-    fetchDataByQuery: true,
-    queryField: "status",
-    queryValue: "Completed",
-    menu: { name: "Appointments", icon: FaList },
-    schema: [
-      {
-        name: "patient",
-        title: "Patient",
-        type: "text",
-      },
-      { name: "doctor", title: "Doctor", type: "text" },
-      { name: "date", title: "Appointment Date", type: "date" },
-      {
-        name: "status",
-        title: "Status",
-        type: "select",
-        options: [
-          { label: "Scheduled", value: "Scheduled" },
-          { label: "Confirmed", value: "Confirmed" },
-          { label: "Completed", value: "Completed" },
-          { label: "Cancelled", value: "Cancelled" },
-        ],
-      },
-    ],
-  },
-  {
-    path: "Cancelled-appointments",
-    dataSource: "https://ehcs.onrender.com/appointments",
-    icon: FaTimes,
-    sidePanel: false,
-    type: "crud",
-    add: false,
-    view: true,
-    //edit: true,
-    //update: true,
-    delete: true,
-    fetchDataByQuery: true,
-    queryField: "status",
-    queryValue: "Cancelled",
-    menu: { name: "Appointments", icon: FaList },
-    schema: [
-      {
-        name: "patient",
-        title: "Patient",
-        type: "text",
-      },
-      { name: "doctor", title: "Doctor", type: "text" },
-      { name: "date", title: "Appointment Date", type: "date" },
-      {
-        name: "status",
-        title: "Status",
-        type: "select",
-        options: [
-          { label: "Scheduled", value: "Scheduled" },
-          { label: "Confirmed", value: "Confirmed" },
-          { label: "Completed", value: "Completed" },
-          { label: "Cancelled", value: "Cancelled" },
-        ],
-      },
-    ],
+    successPath: "dashboard",
   },
 
   {
@@ -328,24 +217,42 @@ export const PatientResources = [
     ],
   },
 
+  {
+    path: "Eye Checker",
+    dataSource: "https://ehcs.onrender.com/services",
+    icon: BsEye,
+    type: "diagnosis",
 
+    menu: { name: "Diagnosis", icon: FaRegEye },
+
+  },
 
   {
     path: "profile",
-    dataSource: "https://ehcs.onrender.com/users",
-    icon: FaUser,
+    dataSource: "https://ehcs.onrender.com/user",
+    icon: FaUserCog,
     sidePanel: false,
     type: "singleton",
-    queryField: "_id",
-    queryValue: localStorage.getItem("id"),
-
+    menu: { name: "Settings", icon: FaCogs },
     schema: [
       { name: "Image", title: "Image", type: "file" },
-      { name: "username", title: "Username", type: "text" },
+      { name: "fullname", title: "fullname", type: "text" },
       { name: "email", title: "Email", type: "text" },
-      { name: "firstName", title: "First Name", type: "text" },
-      { name: "lastName", title: "Last Name", type: "text" },
       { name: "dateOfBirth", title: "Date Of Birth", type: "date" },
+    ],
+  },
+  {
+    path: "change password",
+    dataSource: "https://ehcs.onrender.com/user",
+    icon: RiLockPasswordFill,
+    sidePanel: false,
+    type: "singleton",
+    menu: { name: "Settings", icon: FaCogs },
+    schema: [
+
+      { name: "cpassword", title: "enter current password", type: "password" },
+      { name: "newpassword", title: "new password", type: "password" },
+      { name: "confirmnewpass", title: "confirm new password", type: "password" },
     ],
   },
 ];

@@ -12,7 +12,8 @@ const Services = require("./services");
 const ShoppingCart = require("./shoppingCart");
 const Users = require("./users");
 const InsuranceProvider= require("./insuranceProvider");
-
+const AppointmentReport= require("./appointmentReport");
+const Sales= require("./sales");
 module.exports = {
   Appointments,
   FollowUp,
@@ -27,5 +28,7 @@ module.exports = {
   Services,
   ShoppingCart,
   Users,
-  InsuranceProvider
+  InsuranceProvider,
+  AppointmentReport,
+  Sales
 };

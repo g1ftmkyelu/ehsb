@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 const appointmentSchema = new Schema(
     {
+
+        title: {
+            type: String,
+            required: true,
+        },
         doctor: {
             type: String,
             required: true,

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const roleSlice = createSlice({
   name: 'role',
-  initialState: 'admin', // Initial value
+  initialState: 'administrator', // Initial value
   reducers: {
     setRole: (state, action) => {
       return action.payload;

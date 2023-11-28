@@ -14,7 +14,7 @@ import { inventoryManagerResources } from './components/adminPanel/configs/resou
 function App() {
   const dashboardData = [
     { resources: DoctorResources, role: 'doctor' },
-    { resources: HospitalAdminResources, role: 'admin' },
+    { resources: HospitalAdminResources, role: 'administrator' },
     { resources: PatientResources, role: 'patient' },
     { resources: pharmacistResources, role: 'pharmacist' },
     { resources: inventoryManagerResources, role: 'inventory manager' }

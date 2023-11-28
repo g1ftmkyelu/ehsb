@@ -14,7 +14,7 @@ import {
 
 
 
-// Define resources for the admin user
+// Define resources for the administrator user
 export const adminResources = [
   {
     path: "dashboard",

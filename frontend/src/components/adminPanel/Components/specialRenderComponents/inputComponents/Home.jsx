@@ -1,23 +1,21 @@
-import React from 'react';
-import DynamicChart from '../../dashboardComponents/charts/DynamicChart';
+import React, { useState } from 'react';
 import DashboardCardSection from './DashboardCardSection';
-import GridLayout from 'react-grid-layout';
-import 'react-resizable/css/styles.css';
-import 'react-grid-layout/css/styles.css';
+import WidgetRenderer from '../WidgetRenderer';
 
-const Home = ({ metrics, data }) => {
-
-
-  
-
-
+const Home = ({ widgetConfig, metrics }) => {
   return (
     <div className=''>
       <div className="">
         <DashboardCardSection {...{ metrics }} />
       </div>
 
-
+      <div className='m-10'>
+        {widgetConfig ? (
+          <WidgetRenderer rdata={widgetConfig} />
+        ) : (
+          <p>No widget configuration found.</p> // You can render a default message or component
+        )}
+      </div>
     </div>
   );
 };

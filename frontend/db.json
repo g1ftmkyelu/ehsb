@@ -22,7 +22,7 @@
       "name": "User1",
       "email": "test@example2.com",
       "password": "123445",
-      "role": "admin",
+      "role": "administrator",
       "createdAt": "2023-09-26",
       "updatedAt": "2023-11-04",
       "id": 3
@@ -31,7 +31,7 @@
       "name": "Second User",
       "email": "jm@mxmail.com",
       "password": "123456",
-      "role": "admin",
+      "role": "administrator",
       "createdAt": "2023-09-26",
       "updatedAt": "2023-11-01",
       "id": 4

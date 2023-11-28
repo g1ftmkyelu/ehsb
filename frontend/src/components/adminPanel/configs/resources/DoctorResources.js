@@ -5,6 +5,7 @@ import {
   BiTimer,
   BiUserPin,
 } from "react-icons/bi";
+import { BsBookmarkDash, BsGraphUp } from "react-icons/bs";
 import {
   FaCalendarAlt,
   FaList,
@@ -108,6 +109,38 @@ export const DoctorResources = [
         ],
       },
     ],
+    widgetConfig: {
+      tableResource: {
+        path: "Your appointments",
+        dataSource: "https://ehcs.onrender.com/appointments",
+        type: "crud",
+        addResource: true,
+        view: true,
+        edit: true,
+        delete:true,
+        icon: BsBookmarkDash,
+        schema: [
+          { name: "patient", title: "Patient", type: "text" },
+          { name: "date", title: "Date", type: "date" },
+          {
+            name: "status", title: "status", type: "select", options: [
+              { label: "Scheduled", value: "Scheduled" },
+              { label: "Confirmed", value: "Confirmed" },
+              { label: "Completed", value: "Completed" },
+              { label: "Cancelled", value: "Cancelled" },
+
+
+            ],
+          },
+
+        ],
+      },
+      chartData: {
+        chartType: "doughnut",
+        fieldName: "status",
+        resource: "appointments",
+      }
+    }
   },
 
   {
@@ -254,34 +287,11 @@ export const DoctorResources = [
       },
     ],
   },
-  {
-    path: "followups",
-    dataSource: "https://ehcs.onrender.com/followups",
-    icon: FaFileMedicalAlt,
-    sidePanel: false,
-    type: "crud",
-    add: true,
-    view: true,
-    edit: true,
-    update: true,
-    delete: true,
-    menu: { name: "resources", icon: FaList },
-    schema: [
-      { name: "appointmentId", title: "Appointment ID", type: "text" },
-      {
-        name: "patientId",
-        title: "Patient ID",
-        type: "text",
-      },
-      { name: "doctorId", title: "Doctor ID", type: "text" },
-      { name: "date", title: "Follow-up Date", type: "datetime" },
-      { name: "notes", title: "Notes", type: "textarea" },
-    ],
-  },
+
   {
     path: "profile",
     dataSource: "https://ehcs.onrender.com/users",
-   
+
     icon: FaUser,
     sidePanel: false,
     type: "singleton",

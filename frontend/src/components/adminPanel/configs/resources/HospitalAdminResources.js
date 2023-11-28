@@ -1,22 +1,10 @@
 import {
-  FaNotesMedical,
   FaUserMd,
   FaUserNurse,
-  FaProcedures,
-  FaPrescriptionBottleAlt,
-  FaHospital,
-  FaCalendarAlt,
   FaFileMedical,
-  FaFileMedicalAlt,
-  FaList,
-  FaCalendarPlus,
-  FaCalendarCheck,
   FaCalendarWeek,
-  FaCalendarTimes,
   FaUsers,
   FaStethoscope,
-  FaPills,
-  FaVrCardboard,
   FaUser,
   FaUserPlus,
   FaChartLine,
@@ -24,6 +12,9 @@ import {
   FaShoppingBag,
   FaGlasses,
   FaSearch,
+  FaUserCog,
+  FaCog,
+  FaCogs,
 } from "react-icons/fa";
 import {
   BiArchive,
@@ -38,10 +29,11 @@ import {
   IoIosBasket,
   IoMdEyeOff,
 } from "react-icons/io";
-import { RiShoppingBasket2Line, RiInputCursorMove } from "react-icons/ri";
+import { RiShoppingBasket2Line, RiInputCursorMove, RiLockPasswordFill } from "react-icons/ri";
 import { FiFileText } from "react-icons/fi";
-import { BsBox, BsCalendar2Month, BsGrid } from "react-icons/bs";
+import { BsBookmarkDash, BsBox, BsCalendar2Month, BsGrid } from "react-icons/bs";
 import { MdAttachMoney } from "react-icons/md";
+import data from '../sales.json'
 
 export const HospitalAdminResources = [
   {
@@ -49,13 +41,13 @@ export const HospitalAdminResources = [
     icon: BsGrid,
     metrics: [
       {
-        name: "User Management",
+        name: "metrics",
         units: [
           {
-            title: "admin",
+            title: "administrator",
             path: "administrators",
             icon: BiSolidGroup,
-            dataSource: "https://ehcs.onrender.com/users/count?role=admin",
+            dataSource: "https://ehcs.onrender.com/users/count?role=administrator",
             dataType: "count",
             color: "orange",
             seeMore: true,
@@ -92,9 +84,41 @@ export const HospitalAdminResources = [
             },
             show: true,
           },
+          {
+            title: "Products",
+            path: "products",
+            icon: BiUserPin,
+            dataSource: "https://ehcs.onrender.com/products/count",
+            dataType: "count",
+            color: "purple",
+            seeMore: true,
+            onClick: () => {
+              console.log("Clicked on Patients");
+            },
+            show: true,
+          },
         ],
       },
     ],
+    widgetConfig: {
+      tableResource: {
+        path: "users",
+        dataSource: "https://ehcs.onrender.com/users",
+        type: "crud",
+        addResource: true,
+        view: true,
+        icon: BsBookmarkDash,
+        schema: [
+          { name: "fullname", title: "User Name", type: "text" },
+          { name: "role", title: "role", type: "text" },
+        ],
+      },
+      chartData: {
+        chartType: "doughnut",
+        fieldName: "role",
+        resource: "users",
+      }
+    }
   },
 
   {
@@ -111,16 +135,14 @@ export const HospitalAdminResources = [
     menu: { name: "User Management", icon: FaUsers },
     schema: [
       { name: "Image", title: "Image", type: "file" },
-      { name: "username", title: "Username", type: "text" },
       { name: "email", title: "Email", type: "text" },
-      { name: "firstName", title: "First Name", type: "text" },
-      { name: "lastName", title: "Last Name", type: "text" },
+      { name: "fullname", title: "Full Name", type: "text" },
       { name: "dateOfBirth", title: "Date Of Birth", type: "date" },
     ],
   },
   {
     path: "administrators",
-    dataSource: "https://ehcs.onrender.com/users?role=admin",
+    dataSource: "https://ehcs.onrender.com/users?role=administrator",
     icon: FaUserPlus,
     sidePanel: false,
     type: "crudGrid",
@@ -129,14 +151,12 @@ export const HospitalAdminResources = [
     update: true,
     delete: true,
     menu: { name: "User Management", icon: FaUsers },
-    schema: [
-      { name: "Image", title: "Image", type: "file" },
-      { name: "username", title: "User Name", type: "text" },
-      { name: "email", title: "Email", type: "text" },
-      { name: "firstName", title: "First Name", type: "text" },
-      { name: "lastName", title: "Last Name", type: "text" },
-      { name: "dateOfBirth", title: "Date Of Birth", type: "date" },
-    ],
+        schema: [
+            { name: "Image", title: "Image", type: "profile picture", type: "file" },
+            { name: "fullname", title: "User Name", type: "text" },
+            { name: "email", title: "Email", type: "text" },
+            { name: "dateOfBirth", title: "Date Of Birth", type: "date" },
+        ],
   },
   {
     path: "patients",
@@ -149,14 +169,12 @@ export const HospitalAdminResources = [
     update: true,
     delete: true,
     menu: { name: "User Management", icon: FaUsers },
-    schema: [
-      { name: "Image", title: "Image", type: "file" },
-      { name: "username", title: "User Name", type: "text" },
-      { name: "email", title: "Email", type: "text" },
-      { name: "firstName", title: "First Name", type: "text" },
-      { name: "lastName", title: "Last Name", type: "text" },
-      { name: "dateOfBirth", title: "Date Of Birth", type: "date" },
-    ],
+        schema: [
+            { name: "Image", title: "Image", type: "profile picture", type: "file" },
+            { name: "fullname", title: "User Name", type: "text" },
+            { name: "email", title: "Email", type: "text" },
+            { name: "dateOfBirth", title: "Date Of Birth", type: "date" },
+        ],
   },
 
   {
@@ -171,14 +189,12 @@ export const HospitalAdminResources = [
     delete: true,
     menu: { name: "User Management", icon: FaUsers },
 
-    schema: [
-      { name: "Image", title: "Image", type: "file" },
-      { name: "username", title: "User Name", type: "text" },
-      { name: "email", title: "Email", type: "text" },
-      { name: "firstName", title: "First Name", type: "text" },
-      { name: "lastName", title: "Last Name", type: "text" },
-      { name: "dateOfBirth", title: "Date Of Birth", type: "date" },
-    ],
+        schema: [
+            { name: "Image", title: "Image", type: "profile picture", type: "file" },
+            { name: "fullname", title: "User Name", type: "text" },
+            { name: "email", title: "Email", type: "text" },
+            { name: "dateOfBirth", title: "Date Of Birth", type: "date" },
+        ],
   },
 
 
@@ -315,80 +331,63 @@ export const HospitalAdminResources = [
     schema: [
       { name: "image", title: "Image", type: "file" },
       { name: "name", title: "Medication Name", type: "text" },
-      { name: "dosage", title: "Dosage", type: "textarea" },
+      { name: "dosage", title: "Dosage", type: "richtextarea" },
       { name: "quantityInStock", title: "Quantity In Stock", type: "number" },
 
     ],
   },
-  {
-    path: "generic report",
-    dataSource: "https://ehcs.onrender.com/services",
-    icon: BiChart,
-    sidePanel: false,
-    type: "crud",
-    kind: "general",
-    menu: { name: "Reports", icon: FaChartLine },
-    schema: [
-      { name: "name", title: "Medication Name", type: "text" },
-      { name: "dosage", title: "Dosage", type: "text" },
-    ],
-  },
+
   {
     path: "weekly report",
-    dataSource: "https://ehcs.onrender.com/services",
+    salesData:data,
+    type:"report",
     icon: FaCalendarWeek,
-    sidePanel: false,
-    type: "crud",
-    kind: "weekly",
     menu: { name: "Reports", icon: FaChartLine },
-    schema: [
-      { name: "name", title: "Medication Name", type: "text" },
-      { name: "dosage", title: "Dosage", type: "text" },
-    ],
+    period: "weekly"
   },
   {
     path: "monthly report",
-    dataSource: "https://ehcs.onrender.com/services",
-    icon: BsCalendar2Month,
-    sidePanel: false,
-    type: "crud",
-    kind: "monthly",
+    salesData:data,
+    type:"report",
+    icon: FaCalendarWeek,
     menu: { name: "Reports", icon: FaChartLine },
-    schema: [
-      { name: "name", title: "Medication Name", type: "text" },
-      { name: "dosage", title: "Dosage", type: "text" },
-    ],
+    period: "monthly"
   },
+
   {
     path: "annual report",
-    dataSource: "https://ehcs.onrender.com/services",
-    icon: FaCalendarDay,
-    sidePanel: false,
-    type: "crud",
-    kind: "annual",
+    salesData:data,
+    type:"report",
+    icon: FaCalendarWeek,
     menu: { name: "Reports", icon: FaChartLine },
-    schema: [
-      { name: "name", title: "Medication Name", type: "text" },
-      { name: "dosage", title: "Dosage", type: "text" },
-    ],
+    period: "annua;"
   },
   {
     path: "profile",
-    dataSource: "https://ehcs.onrender.com/users",
-
-    icon: FaUser,
+    dataSource: "https://ehcs.onrender.com/user",
+    icon: FaUserCog,
     sidePanel: false,
     type: "singleton",
-    queryField: "_id",
-    queryValue: localStorage.getItem("id"),
-
+    menu: { name: "Settings", icon: FaCogs },
     schema: [
       { name: "Image", title: "Image", type: "file" },
-      { name: "username", title: "Username", type: "text" },
+      { name: "fullname", title: "fullname", type: "text" },
       { name: "email", title: "Email", type: "text" },
-      { name: "firstName", title: "First Name", type: "text" },
-      { name: "lastName", title: "Last Name", type: "text" },
       { name: "dateOfBirth", title: "Date Of Birth", type: "date" },
+    ],
+  },
+  {
+    path: "change password",
+    dataSource: "https://ehcs.onrender.com/user",
+    icon: RiLockPasswordFill,
+    sidePanel: false,
+    type: "singleton",
+    menu: { name: "Settings", icon: FaCogs },
+    schema: [
+
+      { name: "cpassword", title: "enter current password", type: "password" },
+      { name: "newpassword", title: "new password", type: "password" },
+      { name: "confirmnewpass", title: "confirm new password", type: "password" },
     ],
   },
 ];

@@ -7,6 +7,7 @@ import Home from "../specialRenderComponents/inputComponents/Home";
 import DynamicWizard from '../specialRenderComponents/MyDynamicWizard';
 import ReportRenderer from "../specialRenderComponents/ReportRenderer";
 import Shop from "../crudComponents/Shop";
+import EyeDiagnosis from "../specialRenderComponents/eyeDiagnosis";
 
 function ResourceRender({ data }) {
   let componentToRender;
@@ -25,7 +26,7 @@ function ResourceRender({ data }) {
       componentToRender = <CrudGrid rdata={data} numColumns={3} />;
       break;
     case 'shop':
-      componentToRender = <Shop rdata={data}/>;
+      componentToRender = <Shop rdata={data} />;
       break;
     case 'crudTab':
       componentToRender = <CrudTab rdata={data} />;
@@ -33,11 +34,16 @@ function ResourceRender({ data }) {
     case 'wizard':
       componentToRender = <DynamicWizard rdata={data} />;
       break;
+
+    case 'diagnosis':
+      componentToRender = <EyeDiagnosis />
+      break;
+
     case 'report':
       componentToRender = <ReportRenderer rdata={data} />
       break;
     default:
-      componentToRender = <Home metrics={data.metrics} />; // Render nothing if the type is not recognized
+      componentToRender = <Home widgetConfig={data.widgetConfig} metrics={data.metrics} />; // Render nothing if the type is not recognized
   }
 
   return (

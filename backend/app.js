@@ -16,7 +16,9 @@ const {
   Services,
   ShoppingCart,
   Users,
-  InsuranceProvider
+  InsuranceProvider,
+  AppointmentReport,
+  Sales
 } = require("./resources");
 
 //DB Connection
@@ -36,7 +38,9 @@ const resources = [
   Services,
   ShoppingCart,
   Users,
-  InsuranceProvider
+  InsuranceProvider,
+  AppointmentReport,
+  Sales
 ];
 
 const app = express();

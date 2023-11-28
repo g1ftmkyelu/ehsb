@@ -7,8 +7,9 @@ const SelectFieldAlt = ({ title, value, onChange, data }) => {
       value={value}
       onChange={(e) => onChange(e.target.value)}
       className="border border-gray-300 p-3 w-full rounded-md mb-4"
+      required
     >
-      <option value="">{title}</option>
+      <option value="">-----</option>
       {data.map((item, index) => (
         <option key={index} value={item}>
           {item}

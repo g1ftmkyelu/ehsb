@@ -14,12 +14,13 @@ import { setId } from "../../../Redux/slices/idSlice";
 
 
 const schema = [
-  { name: "username", title: "email", type: "text" },
+  { name: "fullname", title: "email", type: "text" },
   { name: "password", title: "Password", type: "password" },
 
 ];
 
 const LoginPage = ({ registerLink }) => {
+  const rdata={}
   const [dataFromGrandchild, setDataFromGrandchild] = useState({});
   const { token, loading } = useSelector((state) => state.auth);
   const nav = useNavigate();
@@ -54,7 +55,7 @@ const LoginPage = ({ registerLink }) => {
   const handleDataFromGrandchild = (data) => {
     try {
 
-      handleLogin(data.mydata.username, data.mydata.password)
+      handleLogin(data.mydata.fullname, data.mydata.password)
 
 
     } catch (error) {
@@ -68,8 +69,8 @@ const LoginPage = ({ registerLink }) => {
     nav('/dashboard')
   }
 
-  const handleLogin = (username, password) => {
-    dispatch(login({ username, password }))
+  const handleLogin = (fullname, password) => {
+    dispatch(login({ fullname, password }))
       .then((loginObject) => {
         toast.success(loginObject.payload.message, { position: "top-right" });
         fetchData()
@@ -84,7 +85,6 @@ const LoginPage = ({ registerLink }) => {
         toast.error('invalid credentials', { position: "top-right" });
       });
   };
-
 
 
 
@@ -127,6 +127,7 @@ const LoginPage = ({ registerLink }) => {
             schema={schema}
             onDataFromGrandchild={handleDataFromGrandchild}
             title={'login'}
+            rdata={rdata}
           />
           <div>
             <h1 className=" text-lg font-bold">

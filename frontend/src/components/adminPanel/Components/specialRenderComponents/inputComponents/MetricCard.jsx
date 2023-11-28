@@ -34,7 +34,7 @@ const MetricCard = ({ index, metric }) => {
       {metric.seeMore && (
         <Link
           to={`/${metric.path}`}
-          className="block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 text-center transition duration-300 ease-in-out"
+          className="block  hover:bg-blue-600 text-white font-semibold py-2 px-4 text-center transition duration-300 ease-in-out"
         >
           <div className="flex items-center justify-center">
             <span className="mr-2">See All</span>

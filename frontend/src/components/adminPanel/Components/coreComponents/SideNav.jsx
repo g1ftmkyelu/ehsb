@@ -44,7 +44,7 @@ const SideNav = ({ resources }) => {
         {/* The following div will align its content at the top-right corner */}
         <div className="flex justify-center items-center p-4">
           <div>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdRLQvJkjHAu5rIcayCK5IjO_Wy_1wNnPbPw&usqp=CAU" width={80} height={80} alt="Logo" />
+            <img src="https://t4.ftcdn.net/jpg/01/42/10/77/360_F_142107708_x8O3SGeiN5zJxqPUeSXuHnQpJugE34Xq.jpg" width={180} height={100} alt="Logo" />
           </div>
         </div>
         <Menu>

@@ -338,15 +338,6 @@ export const HospitalAdminResources = [
     ],
   },
   {
-    path: "Eye Checker",
-    dataSource: "https://ehcs.onrender.com/services",
-    icon: BsEye,
-    type: "diagnosis",
-
-    menu: { name: "Diagnosis", icon: FaRegEye },
-
-  },
-  {
     path: "weekly report",
     salesData:data,
     type:"report",

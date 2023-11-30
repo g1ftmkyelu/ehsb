@@ -292,6 +292,16 @@ export const DoctorResources = [
   },
 
   {
+    path: "Eye Checker",
+    dataSource: "https://ehcs.onrender.com/services",
+    icon: BsEye,
+    type: "diagnosis",
+
+    menu: { name: "Diagnosis", icon: FaRegEye },
+
+  },
+
+  {
     path: "profile",
     dataSource: "https://ehcs.onrender.com/user",
     icon: FaUserCog,

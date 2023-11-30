@@ -14,7 +14,10 @@ import {
   FaTimesCircle,
   FaTimes,
   FaUser,
+  FaUserCog,
+  FaCogs,
 } from "react-icons/fa";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 export const DoctorResources = [
   {
@@ -290,19 +293,30 @@ export const DoctorResources = [
 
   {
     path: "profile",
-    dataSource: "https://ehcs.onrender.com/users",
-
-    icon: FaUser,
+    dataSource: "https://ehcs.onrender.com/user",
+    icon: FaUserCog,
     sidePanel: false,
     type: "singleton",
-    queryField: "_id",
+    menu: { name: "Settings", icon: FaCogs },
     schema: [
       { name: "Image", title: "Image", type: "file" },
-      { name: "username", title: "Username", type: "text" },
+      { name: "fullname", title: "fullname", type: "text" },
       { name: "email", title: "Email", type: "text" },
-      { name: "firstName", title: "First Name", type: "text" },
-      { name: "lastName", title: "Last Name", type: "text" },
       { name: "dateOfBirth", title: "Date Of Birth", type: "date" },
+    ],
+  },
+  {
+    path: "change password",
+    dataSource: "https://ehcs.onrender.com/user",
+    icon: RiLockPasswordFill,
+    sidePanel: false,
+    type: "singleton",
+    menu: { name: "Settings", icon: FaCogs },
+    schema: [
+
+      { name: "cpassword", title: "enter current password", type: "password" },
+      { name: "newpassword", title: "new password", type: "password" },
+      { name: "confirmnewpass", title: "confirm new password", type: "password" },
     ],
   },
 ];

@@ -198,5 +198,125 @@
         "__v": 0,
         "createdAt": "2023-01-25T16:51:49.416Z",
         "updatedAt": "2023-01-25T16:51:49.416Z"
+    },
+    {
+        "productName": "Contact Lens Model X",
+        "quantitySold": 5,
+        "amount": 10000,
+        "totalPrice": 10000,
+        "_id": "65661aa57ee9c526c5745c80",
+        "__v": 0,
+        "createdAt": "2023-11-27T16:51:49.413Z",
+        "updatedAt": "2023-11-27T16:51:49.413Z"
+    },
+    {
+        "productName": "Glasses Model Y",
+        "quantitySold": 3,
+        "amount": 7500,
+        "totalPrice": 7500,
+        "_id": "65661aa57ee9c526c5745c81",
+        "__v": 0,
+        "createdAt": "2023-11-28T16:51:49.413Z",
+        "updatedAt": "2023-11-28T16:51:49.413Z"
+    },
+    {
+        "productName": "Lens Model Z",
+        "quantitySold": 2,
+        "amount": 5000,
+        "totalPrice": 5000,
+        "_id": "65661aa57ee9c526c5745c82",
+        "__v": 0,
+        "createdAt": "2023-11-29T16:51:49.413Z",
+        "updatedAt": "2023-11-29T16:51:49.413Z"
+    },
+    {
+        "productName": "Eyewear Model A",
+        "quantitySold": 6,
+        "amount": 12000,
+        "totalPrice": 12000,
+        "_id": "65661aa57ee9c526c5745c83",
+        "__v": 0,
+        "createdAt": "2023-11-30T16:51:49.413Z",
+        "updatedAt": "2023-11-30T16:51:49.413Z"
+    },
+    {
+        "productName": "Lens Model B",
+        "quantitySold": 4,
+        "amount": 8000,
+        "totalPrice": 8000,
+        "_id": "65661aa57ee9c526c5745c84",
+        "__v": 0,
+        "createdAt": "2023-11-25T16:51:49.413Z",
+        "updatedAt": "2023-11-25T16:51:49.413Z"
+    },
+    {
+        "productName": "Glasses Model C",
+        "quantitySold": 5,
+        "amount": 10000,
+        "totalPrice": 10000,
+        "_id": "65661aa57ee9c526c5745c85",
+        "__v": 0,
+        "createdAt": "2023-11-26T16:51:49.413Z",
+        "updatedAt": "2023-11-26T16:51:49.413Z"
+    },
+    {
+        "productName": "Contact Lens Model D",
+        "quantitySold": 3,
+        "amount": 6000,
+        "totalPrice": 6000,
+        "_id": "65661aa57ee9c526c5745c86",
+        "__v": 0,
+        "createdAt": "2023-11-24T16:51:49.413Z",
+        "updatedAt": "2023-11-24T16:51:49.413Z"
+    },
+    {
+        "productName": "Lens Model X",
+        "quantitySold": 4,
+        "amount": 8000,
+        "totalPrice": 8000,
+        "_id": "65661aa57ee9c526c5745c87",
+        "__v": 0,
+        "createdAt": "2023-10-10T16:51:49.413Z",
+        "updatedAt": "2023-10-10T16:51:49.413Z"
+    },
+    {
+        "productName": "Glasses Model Y",
+        "quantitySold": 3,
+        "amount": 7500,
+        "totalPrice": 7500,
+        "_id": "65661aa57ee9c526c5745c88",
+        "__v": 0,
+        "createdAt": "2023-10-15T16:51:49.413Z",
+        "updatedAt": "2023-10-15T16:51:49.413Z"
+    },
+    {
+        "productName": "Eyewear Model Z",
+        "quantitySold": 6,
+        "amount": 12000,
+        "totalPrice": 12000,
+        "_id": "65661aa57ee9c526c5745c89",
+        "__v": 0,
+        "createdAt": "2023-10-25T16:51:49.413Z",
+        "updatedAt": "2023-10-25T16:51:49.413Z"
+    },
+    {
+        "productName": "Contact Lens Model A",
+        "quantitySold": 5,
+        "amount": 10000,
+        "totalPrice": 10000,
+        "_id": "65661aa57ee9c526c5745c8a",
+        "__v": 0,
+        "createdAt": "2023-11-05T16:51:49.413Z",
+        "updatedAt": "2023-11-05T16:51:49.413Z"
+    },
+    {
+        "productName": "Lens Model B",
+        "quantitySold": 4,
+        "amount": 8000,
+        "totalPrice": 8000,
+        "_id": "65661aa57ee9c526c5745c8b",
+        "__v": 0,
+        "createdAt": "2023-11-10T16:51:49.413Z",
+        "updatedAt": "2023-11-10T16:51:49.413Z"
     }
 ]

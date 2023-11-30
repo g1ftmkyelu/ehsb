@@ -343,7 +343,7 @@ export const HospitalAdminResources = [
     type:"report",
     icon: FaCalendarWeek,
     menu: { name: "Reports", icon: FaChartLine },
-    period: "weekly"
+    period: "thisWeek"
   },
   {
     path: "monthly report",
@@ -351,7 +351,7 @@ export const HospitalAdminResources = [
     type:"report",
     icon: FaCalendarWeek,
     menu: { name: "Reports", icon: FaChartLine },
-    period: "monthly"
+    period: "lastMonth"
   },
 
   {
@@ -360,7 +360,7 @@ export const HospitalAdminResources = [
     type:"report",
     icon: FaCalendarWeek,
     menu: { name: "Reports", icon: FaChartLine },
-    period: "annua;"
+    period: "thisYear;"
   },
   {
     path: "profile",

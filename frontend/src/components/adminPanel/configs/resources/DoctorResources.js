@@ -5,7 +5,7 @@ import {
   BiTimer,
   BiUserPin,
 } from "react-icons/bi";
-import { BsBookmarkDash, BsGraphUp } from "react-icons/bs";
+import { BsBookmarkDash, BsEye, BsGraphUp } from "react-icons/bs";
 import {
   FaCalendarAlt,
   FaList,
@@ -16,6 +16,7 @@ import {
   FaUser,
   FaUserCog,
   FaCogs,
+  FaRegEye,
 } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 

@@ -15,6 +15,7 @@ import {
   FaUserCog,
   FaCog,
   FaCogs,
+  FaRegEye,
 } from "react-icons/fa";
 import {
   BiArchive,
@@ -31,7 +32,7 @@ import {
 } from "react-icons/io";
 import { RiShoppingBasket2Line, RiInputCursorMove, RiLockPasswordFill } from "react-icons/ri";
 import { FiFileText } from "react-icons/fi";
-import { BsBookmarkDash, BsBox, BsCalendar2Month, BsGrid } from "react-icons/bs";
+import { BsBookmarkDash, BsBox, BsCalendar2Month, BsEye, BsGrid } from "react-icons/bs";
 import { MdAttachMoney } from "react-icons/md";
 import data from '../sales.json'
 
@@ -336,7 +337,15 @@ export const HospitalAdminResources = [
 
     ],
   },
+  {
+    path: "Eye Checker",
+    dataSource: "https://ehcs.onrender.com/services",
+    icon: BsEye,
+    type: "diagnosis",
 
+    menu: { name: "Diagnosis", icon: FaRegEye },
+
+  },
   {
     path: "weekly report",
     salesData:data,
